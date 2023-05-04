@@ -3,6 +3,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +14,7 @@ public class Main {
 			File file = new File("prueba.txt");
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			int size = Integer.parseInt(br.readLine());
-			Map<Integer, ArrayList<ArrayList<Integer>>> casos = new HashMap<>();
+			// Map<Integer, ArrayList<ArrayList<Integer>>> casos = new HashMap<>();
 			for (int i = 0; i < size; i++) {
 				String[] line = br.readLine().split(" ");
 				int n = Integer.parseInt(line[0]);
@@ -27,48 +29,20 @@ public class Main {
 						caso.get(1).get(Integer.parseInt(ejes[0]) - 1).add(Integer.parseInt(ejes[1]) - 1);
 						caso.get(1).get(Integer.parseInt(ejes[1]) - 1).add(Integer.parseInt(ejes[0]) - 1);
 					}
-					bfs(caso);
+					Dfs dfsOptica = new Dfs();
+					Dfs dfsCoaxial = new Dfs();
+					dfsOptica.findConnectedComponents(caso.get(0));
+					dfsCoaxial.findConnectedComponents(caso.get(1));
+					System.out.println(Arrays.toString(dfsOptica.getComponents()));
+					System.out.println(Arrays.toString(dfsCoaxial.getComponents()));
+
+					System.out.println(caso);
 				}
-				System.out.println(caso, n);
+
 			}
 			br.close();
 		} catch (Exception e) {
 			System.out.println("Error al abrir el archivo");
-		}
-	}
-
-	private int bfs(Map<Integer, ArrayList<ArrayList<Integer>>> casos, int n) {
-		int[] visitadosOptica = new int[n];
-		int[] visitadosCoaxial = new int[n];
-
-		for (int i = 0; i < n; i++) {
-			for (int i = 0; i < n; i++) {
-				visitadosOptica[i] = 0;
-				visitadosCoaxial[i] = 0;
-			}
-			ArrayList<Integer> cola = new ArrayList<>();
-			colaOptica.append(n);
-			colaCoaxial.append(n);
-			visitadosOptica[n] = 1;
-			visitadosCoaxial[n] = 1;
-			while (!colaOptica.isEmpty()) {
-				int nodo = colaOptica.pop();
-				for (int i = 0; i < casos.get(0).get(nodo).size(); i++) {
-					if (visitadosOptica[casos.get(0).get(nodo).get(i)] == 0) {
-						visitadosOptica[casos.get(0).get(nodo).get(i)] = 1;
-						cola.append(casos.get(0).get(nodo).get(i));
-					}
-				}
-			}
-			while (!colaCoaxial.isEmpty()) {
-				int nodo = colaCoaxial.pop();
-				for (int i = 0; i < casos.get(1).get(nodo).size(); i++) {
-					if (visitadosCoaxial[casos.get(1).get(nodo).get(i)] == 0) {
-						visitadosCoaxial[casos.get(1).get(nodo).get(i)] = 1;
-						cola.append(casos.get(1).get(nodo).get(i));
-					}
-				}
-			}
 		}
 	}
 
