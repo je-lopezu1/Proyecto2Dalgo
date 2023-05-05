@@ -27,7 +27,7 @@ public class Graph {
         parent[x] = y;
     }
 
-    public boolean equalSets (Graph coax, Graph optic) {
+    public static boolean equalSets (Graph coax, Graph optic) {
         int[] coaxSet = new int[coax.vertices];
         int[] opticSet = new int[optic.vertices];
 
