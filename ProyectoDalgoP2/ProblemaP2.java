@@ -33,7 +33,6 @@ public class ProblemaP2 {
 						Graph.addEdge(Integer.parseInt(ejes[0]) - 1, Integer.parseInt(ejes[1]) - 1, coaxial.ad);
 					} else {
 						Graph.addEdge(Integer.parseInt(ejes[0]) - 1, Integer.parseInt(ejes[1]) - 1, opti.ad);
-
 					}
 					boolean b = Graph.equalSets(coaxial, opti, Integer.parseInt(ejes[0]) - 1,
 							Integer.parseInt(ejes[1]) - 1, Integer.parseInt(ejes[2]));

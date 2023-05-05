@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Graph {
+class Graph {
     int vertices;
     List<List<Integer>> ad;
     int[] components;
