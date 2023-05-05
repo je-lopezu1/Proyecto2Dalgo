@@ -1,8 +1,18 @@
+
+/**
+ * Proyecto 1 - Diseño y Analisis de Algoritmos - 202310
+ * 
+ * Maria Alejandra Lizarazo
+ * Juan Esteban Lopez
+ * Nicolás Londoño
+ * 
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public class {
 	public static void main(String[] args) {
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
